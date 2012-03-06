@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use App::PcapMon;
+
+my $app = App::PcapMon->new(
+    dev      => "eth0",
+    filter   => "tcp port 22",
+    post_url => "http://127.0.0.1:8080/packet",
+);
+
+$app->run();
